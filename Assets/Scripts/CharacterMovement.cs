@@ -40,7 +40,9 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             selectedObject.GetComponent<BoxCollider2D>().enabled = true;
+            selectedObject.GetComponent<Rigidbody2D>().gravityScale = 1;
             selectedObject = null;
+            
         }
     }
 
@@ -54,6 +56,8 @@ public class CharacterMovement : MonoBehaviour
             transform.position = worldPosition;
             BoxCollider2D collider = selectedObject.GetComponent<BoxCollider2D>();
             collider.enabled = false;
+            Rigidbody2D rb = selectedObject.GetComponent<Rigidbody2D>();
+            rb.gravityScale = 0;
 
         }
     }
